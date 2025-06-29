@@ -1,0 +1,61 @@
+:root{
+    --bk:#e3cfbb;
+    --day:#d5bdaf;
+    --taskbk:#e8bba0;
+}
+body{
+  background-color: var(--taskbk);
+}
+  form {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--day);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  form div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="time"],
+  textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: var(--bk);
+    color: rgb(10, 10, 10);
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color:#cba783 ;
+    opacity: 0.8;
+  }
+
