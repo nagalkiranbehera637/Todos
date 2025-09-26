@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODOs</title>
+    <title>Document</title>
     <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
@@ -12,92 +12,14 @@
         <h1 class="logo">TODOs</h1>
     </div>
     <div class="creating_title"><h2>Today</h2>
-        <a href="/new"><img src="/img/add1.png" alt="create"></a>
+        <a href="/new"><img src="/img/add.png" alt="create"></a>
     </div>
     <div class="header_main">
-        <% if (locals.tasks && tasks.length > 0) { %>
-      <% tasks.forEach((task) => { %>
-        <div class="header_task">
-          <form action="/update-status/<%= task.id %>" method="POST">
-            <input type="checkbox" class="task-checkbox" name="status" onchange="this.form.submit()" style="accent-color: rgb(45, 39, 20);" <%= task.status ? 'checked' : '' %>>
-          </form>
-          <h3 class="task-title <%= task.status ? 'crossed' : '' %>"><%= task.title %></h3>
-          <span class="delete">
-            <a href="/delete/<%= task.id %>">
-              <img src="/img/delete-xxl.png" alt="Delete">
-            </a>
-          </span>
-        </div>
-      <% }) %>
-    <% } else { %>
-      <div class="default header_task">
-        <input type="checkbox" class="task-checkbox" name="task" value="true" style="accent-color: rgb(45, 39, 20);">
-        <h3 class="task-title">Task 1</h3>
-      </div>
-      <div class="default header_task">
-        <input type="checkbox" class="task-checkbox" name="task" value="true" style="accent-color: rgb(45, 39, 20);">
-        <h3 class="task-title">Task 2</h3>
-      </div>
-    <% } %>
+        <div class="header_task"><input type="checkbox" name="task" value="true"><h3>play cricket</h3></div>
+        
+       <div class="header_task"><input type="checkbox" name="task" value="true"><h3>play cricket</h3></div>
     </div>
 </header>
-<div class="main">
-  <div class="allDays">
-  <div class="days">
-    <% for(var i=0;i<7;i++){ %>
-    <div class="day D<%=days[i]%>">
-      <h1><%= days[i] %></h1>
-      <p><%= weeks[i] %></p>
-      <p>|</p>
-    </div>
-    <% } %>
-  </div>
-  <div class="line-title">
-  <span>all days</span>
-  <hr>
-</div>
-  </div>
-  <% if(locals.tasks){ %>
-  <div class="tasks">
-    <%tasks.forEach((task)=>{ %>
-    <div class="task">
-      <div class="task__title__progress"><div class="title"><h3><%= task.title %></h3></div>
-      <div class="progress">
-        <% if(task.status==true){ %>
-        <img src="/img/checked.png"><h6>Completed</h6>
-        <% }else{ %>
-          <img src="/img/pending.png"><h6>In progress</h6>
-          <% } %>
-      </div>
-    </div>
-      <div class="description"><p><%=task.description%></p></div>
-      <div class="edit_bar"><a href="/edit2/<%=task.id %>"><img src="/img/edit.png" alt="edit"></a></div>
-    </div>
-    <% } )%>
-  </div>
-  <% }else{ %>
-    <h2 class="notask">No Tasks currently</h2>
-    <% } %>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const checkboxes = document.querySelectorAll(".task-checkbox");
-
-      checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", function () {
-          const h3 = this.closest(".header_task").querySelector(".task-title");
-          if (this.checked) {
-            h3.classList.add("crossed");
-          } else {
-            h3.classList.remove("crossed");
-          }
-        });
-      });
-    });
-  const day=document.querySelector(".D<%= today%>")
-   day.classList.add("selectday");
-
-</script>
-
+<div class="main"></div>
 </body>
 </html>
